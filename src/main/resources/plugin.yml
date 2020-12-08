@@ -15,11 +15,10 @@ permissions:
   spintowin.reload:
     description: Allows to reload the config.
     default: op
-
 commands:
   spintowin:
     description: Control SpinToWin.
     usage:
       §5/spin §fannounce <seconds> §7(Sets the announcement delay)
-      §5/spin §fseconds <seconds> §7(Sets how many seconds should we wait before MOLE MODE after it's down to the final two)
+      §5/spin §fseconds <seconds> §7(Sets how many seconds we should wait before MOLE MODE after it's down to the final two)
       §5/spin §freload §7(Reloads config)
