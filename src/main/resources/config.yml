@@ -1,0 +1,7 @@
+# After it's down to the final two, how many seconds should we wait before MOLE MODE?
+# Default: 60 seconds
+seconds: 60
+
+# How often should the time until MOLE MODE be announced?
+# Default: Every 10 seconds
+delay: 10

@@ -1,0 +1,25 @@
+name: ${project.name}
+main: com.thekingelessar.spintowin.SpinToWin
+version: ${project.version}
+author: TheKingElessar
+dependencies: []
+description: ${project.description}
+website: ${project.url}
+permissions:
+  spintowin.seconds:
+    description: Allows to set the time until MOLES.
+    default: op
+  spintowin.announce:
+    description: Allows to set the announcement delay.
+    default: op
+  spintowin.reload:
+    description: Allows to reload the config.
+    default: op
+
+commands:
+  spintowin:
+    description: Control SpinToWin.
+    usage:
+      §5/spin §fannounce <seconds> §7(Sets the announcement delay)
+      §5/spin §fseconds <seconds> §7(Sets how many seconds should we wait before MOLE MODE after it's down to the final two)
+      §5/spin §freload §7(Reloads config)
