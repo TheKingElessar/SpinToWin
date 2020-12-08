@@ -6,10 +6,14 @@ Drop [this bad boy](https://github.com/TheKingElessar/SpinToWin/releases) in you
 
 ### Commands:
 `/spin seconds <seconds>`: Sets the announcement delay.
+
 `/spin announce <seconds>`: Set how many seconds we should wait before MOLE MODE after it's down to the final two.
+
 `/spin reload`: Reloads config.
 
 ### Permissions:
 `spintowin.seconds`: Allows to set the time until MOLES.
+
 `spintowin.announce`: Allows to set the announcement delay.
+
 `spintowin.reload`: Allows to reload the config.
