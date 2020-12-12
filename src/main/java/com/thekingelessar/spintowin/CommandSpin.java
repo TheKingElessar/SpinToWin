@@ -32,6 +32,10 @@ public class CommandSpin implements CommandExecutor
                         
                         SpinToWin.instance.loadConfig();
                         TaskSpinToWin.announce = announce;
+    
+                        SpinToWin.instance.getConfig().set("delay", announce);
+                        SpinToWin.instance.saveConfig();
+    
                         sender.sendMessage(SpinToWin.spinPrefix + "Set announcement delay: " + TaskSpinToWin.announce);
                     }
                     else
@@ -63,7 +67,11 @@ public class CommandSpin implements CommandExecutor
                         
                         SpinToWin.instance.loadConfig();
                         TaskSpinToWin.fullSeconds = seconds;
-                        sender.sendMessage(SpinToWin.spinPrefix + "Set seconds: " + TaskSpinToWin.fullSeconds);
+    
+                        SpinToWin.instance.getConfig().set("seconds", seconds);
+                        SpinToWin.instance.saveConfig();
+                        
+                        sender.sendMessage(SpinToWin.spinPrefix + "Set seconds: " + seconds);
                     } else {
                         return false;
                     }

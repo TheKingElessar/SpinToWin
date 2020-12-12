@@ -1,5 +1,6 @@
 package com.thekingelessar.spintowin;
 
+import com.google.gson.internal.$Gson$Preconditions;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -32,27 +33,36 @@ public class ListenerSpinToWin implements Listener
             if(event.getPlayer().getGameMode().equals(GameMode.ADVENTURE) && event.getNewGameMode().equals(GameMode.SPECTATOR))
             {
                 spectatorCount++;
-                adventureCount--;
             }
-            
+    
+            if(event.getPlayer().getGameMode().equals(GameMode.SPECTATOR) && event.getNewGameMode().equals(GameMode.ADVENTURE))
+            {
+                adventureCount++;
+            }
+    
             for (Player player : onlinePlayers)
             {
-                if (!player.equals(event.getPlayer()))
+                if (!player.getUniqueId().equals(event.getPlayer().getUniqueId()))
                 {
                     GameMode gameMode = player.getGameMode();
                     if (gameMode == GameMode.ADVENTURE) adventureCount++;
                     if (gameMode == GameMode.SPECTATOR) spectatorCount++;
                 }
             }
-    
+            
             if (adventureCount == 2 && !spinning)
             {
                 spinning = true;
                 spinTask = new TaskSpinToWin(SpinToWin.instance).runTaskTimer(SpinToWin.instance, 20, 20L);
             }
+            
+   //         SpinToWin.console.sendMessage(SpinToWin.spinPrefix + "adventure count: " + adventureCount);
     
             if(adventureCount > 2 && spinning) {
+                ListenerSpinToWin.spinning = false;
+                server.broadcastMessage(ChatColor.GREEN + "SPIN TO WIN CANCELED!");
                 spinTask.cancel();
+                spinTask = null;
             }
         }
     }

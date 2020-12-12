@@ -10,7 +10,6 @@ public class SpinToWin extends JavaPlugin
 {
     
     static public ConsoleCommandSender console = null;
-    static public FileConfiguration config = null;
     static public final String spinPrefix = ChatColor.DARK_PURPLE.toString() + "[SpinToWin] " + ChatColor.RESET.toString();
     static public SpinToWin instance;
     
@@ -35,9 +34,8 @@ public class SpinToWin extends JavaPlugin
     public void loadConfig()
     {
         this.saveDefaultConfig();
-        config = this.getConfig();
-        TaskSpinToWin.fullSeconds = config.getInt("seconds");
-        TaskSpinToWin.announce = config.getDouble("delay");
+        TaskSpinToWin.fullSeconds = Integer.parseInt(SpinToWin.instance.getConfig().get("seconds").toString());
+        TaskSpinToWin.announce = Double.parseDouble(SpinToWin.instance.getConfig().get("delay").toString());
     }
     
 }

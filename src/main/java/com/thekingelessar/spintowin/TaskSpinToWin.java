@@ -21,7 +21,7 @@ public class TaskSpinToWin extends BukkitRunnable
     {
         secondsLeft = fullSeconds;
         server = plugin.getServer();
-        server.broadcastMessage(ChatColor.GREEN + "SPIN TO WIN IN 60 SECONDS!");
+        server.broadcastMessage(ChatColor.GREEN + String.format("SPIN TO WIN IN %s SECONDS!", fullSeconds));
         secondsLeft--;
     }
     
@@ -52,14 +52,5 @@ public class TaskSpinToWin extends BukkitRunnable
         }
         
         secondsLeft--;
-    }
-    
-    @Override
-    public synchronized void cancel() throws IllegalStateException
-    {
-        ListenerSpinToWin.spinning = false;
-        server.broadcastMessage(ChatColor.GREEN + "SPIN TO WIN CANCELED!");
-    
-        super.cancel();
     }
 }
